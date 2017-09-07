@@ -2,6 +2,7 @@ var express = require("express");
 var mongojs = require("mongojs");
 var request = require("request");
 var cheerio = require("cheerio");
+
 var app = express();
 
 var databaseUrl = "scraper";
@@ -17,7 +18,6 @@ app.get("/", function(req, res) {
 });
 
 app.get("/all", function(req, res) {
-
   db.scrapedData.find({}, function(error, found) {
     if (error) {
       console.log(error);
@@ -51,7 +51,6 @@ app.get("/scrape", function(req, res) {
       }
     });
   });
-
   res.send("Scrape Complete");
 });
 
